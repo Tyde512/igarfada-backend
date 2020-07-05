@@ -29,7 +29,7 @@ module.exports = {
 
         userDb.save();
 
-        res.set("x-token", `Bearer ${jwt.sign({ id: userDb._id, name: userDb.name, email: userDb.email, points: userDb.points, reservations }, "shh")}`);
+        res.set("x-token", jwt.sign({ id: userDb._id, name: userDb.name, email: userDb.email, points: userDb.points, reservations }, "shh" ));
         res.json({ message: "Success" });
     },
     async logIn(req, res) {
@@ -43,7 +43,7 @@ module.exports = {
         const reservations = await db.Reservation.findOne({ owner_id: userDb._id }, { _id: 0});
 
         
-        res.set("x-token", `Bearer ${jwt.sign({ id: userDb._id,  name: userDb.name, email: userDb.email, points: userDb.points, reservations }, "shh")}`)
+        res.set("x-token", jwt.sign({ id: userDb._id,  name: userDb.name, email: userDb.email, points: userDb.points, reservations }, "shh"))
         res.json({ message: "Success" });
     }
 };
