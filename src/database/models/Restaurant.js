@@ -7,7 +7,9 @@ const Restaurant = new Schema({
     instagram: String,
     address: String,
     owner_id: String,
-    image: Buffer
+    image: Buffer,
+    category: String,
+    verify: Boolean
 })
 
 module.exports = model("restaurants", Restaurant);

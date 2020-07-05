@@ -6,6 +6,10 @@ module.exports = {
     async signUp(req, res) {
         const user = req.body;
 
+        if(!user.name && !user.email) {
+            res.stauts(422).json({ message: "Você precisa completar todos os campos para se registrar." })
+        }
+
         const userExists = await db.User.exists({ email: user.email });
         if (userExists) return res.status(422).json({ message: "Este usuário já está cadastrado" });
 

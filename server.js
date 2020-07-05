@@ -5,10 +5,12 @@ const app = express();
 const router = require("./src/router");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cors())
 app.use(router);
 
 mongoose.connect(process.env.MONGODB_URI, {
