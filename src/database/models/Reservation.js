@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const Reservation = new Schema({
     adults: Number,
     kids: Number,
-    date: Date,
+    date: String,
     owner_id: String,
 })
 

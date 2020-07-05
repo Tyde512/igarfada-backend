@@ -11,12 +11,12 @@ module.exports = {
     createReservation(req, res) {
         const value = req.body;
         
-        if (value.adults && value.kids && value.owner_id) {
+        if (value.adults && value.kids && value.owner_id && value.date) {
 
             const reservationDb = new db.Reservation({
                 adults: value.adults,
                 kids: value.kids,
-                date: Date.now(),
+                date: value.date,
                 owner_id: value.owner_id
             });
 
