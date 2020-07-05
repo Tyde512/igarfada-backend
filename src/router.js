@@ -15,10 +15,11 @@ Router.post("/authentication/login", AuthenticationController.logIn);
 
 /** USER */
 Router.get("/user/reservations", UserController.getReservations);
+Router.get("/user/fetch", UserController.getUser)
 Router.post("/user/createreservation", UserController.createReservation);
 
 /** RESTAURANT */
 Router.get("/restaurant/list", RestaurantController.getRestaurantList);
-Router.post("/restaurant/create", RestaurantController.createRestaurant)
+Router.post("/restaurant/create", RestaurantController.createRestaurant);
 
 module.exports = Router;

@@ -5,7 +5,6 @@ const User = new Schema({
     email: String,
     password: String,
     points: Number,
-    reservations: Array,
     image: String,
     frequented_restaurants: Number,
 })
