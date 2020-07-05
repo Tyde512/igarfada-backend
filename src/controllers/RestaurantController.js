@@ -2,7 +2,7 @@ const db = require("../database");
 
 module.exports = {
     async getRestaurantList(req, res) {
-        let doc = await db.Restaurant.find({}, { cnpj: 0, });
+        let doc = await db.Restaurant.find({}, { cnpj: 0, _id: 0, __v: 0 });
 
         res.json(doc);
     },
