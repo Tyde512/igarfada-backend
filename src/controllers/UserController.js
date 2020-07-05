@@ -10,19 +10,18 @@ module.exports = {
     },
     createReservation(req, res) {
         const value = req.body;
-        
-        if (value.adults && value.kids && value.owner_id && value.date) {
 
-            const reservationDb = new db.Reservation({
-                adults: value.adults,
-                kids: value.kids,
-                date: value.date,
-                owner_id: value.owner_id
-            });
+        if (!value.adults && !value.kids && !value.owner_id && !value.date)
+            return res.status(422).json({ message: "Está faltando detalhes para efetuar a reserva." });
 
-            reservationDb.save();
-        } else {
-            return res.status(422).json({ message: "Está faltando detalhes para efetuar a reserva." })
-        }
+        const reservationDb = new db.Reservation({
+            adults: value.adults,
+            kids: value.kids,
+            date: value.date,
+            owner_id: value.owner_id
+        });
+
+        reservationDb.save();
+        res.status(200).json({ message: `Sucesso, sua reserva foi agendada para o dia ${value.date}` })
     }
 };
