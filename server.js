@@ -13,6 +13,9 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(router);
 
+app.get("", (req, res) => {
+})
+
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
