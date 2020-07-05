@@ -14,7 +14,7 @@ module.exports = {
 
         if(existsRestaurantName || existsRestaurantCnpj) return res.json({ message: "Este restaurante já existe" })
 
-        if(!value.company_name && !value.cnpj && !value.address) {
+        if(!value.company_name && !value.cnpj && !value.address && !value.category) {
             return res.json({ message: "Há dados faltando." })
         }
 
@@ -26,6 +26,7 @@ module.exports = {
             address: value.address,
             owner_id: value.owner_id,
             image: value.image,
+            category: value.category,
             verify: false
         })
 
