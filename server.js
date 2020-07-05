@@ -10,7 +10,7 @@ const cors = require("cors");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors({ allowedHeaders: ['Content-Type', 'Authorization', 'X-Token'], exposedHeaders: ['Origin', 'X-Requested-With', 'Content-Range', 'Content-Disposition', 'Content-Type', 'X-Token'] }))
 app.use(router);
 
 app.get("", (req, res) => {
