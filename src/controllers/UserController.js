@@ -21,7 +21,7 @@ module.exports = {
             return res.json({ message: "Invalid form" })
         }
     },
-    createReservation(req, res) {
+    async createReservation(req, res) {
         const value = req.body;
 
         if (!value.adults && !value.kids && !value.token && !value.date && !value.places)
