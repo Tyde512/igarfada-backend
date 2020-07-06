@@ -1,0 +1,1 @@
+A Garfada é uma plataforma que motiva a ida aos estabelecimentos de forma segura e responsável. Os clientes podem reservar seus lugares de forma antecipada. Todas as lojas precisam enviar uma foto do certificado emitido pelas prefeituras, atestando que atenderam todas os protocolos de segurança para retomar suas atividades.
