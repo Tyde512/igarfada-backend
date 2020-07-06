@@ -35,6 +35,11 @@ module.exports = {
             token: jwt_decode(req.headers["x-token"]).id
         });
 
+        const doc = await db.User.findOne({ _id: jwt_decode(req.headers["x-token"]).id })
+
+        doc.frequented_restaurants+1
+        doc.save()
+
         reservationDb.save();
         res.status(200).json({ message: `Sucesso, sua reserva foi agendada para o dia ${value.date}` })
     }
