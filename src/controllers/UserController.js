@@ -24,13 +24,14 @@ module.exports = {
     createReservation(req, res) {
         const value = req.body;
 
-        if (!value.adults && !value.kids && !value.token && !value.date)
+        if (!value.adults && !value.kids && !value.token && !value.date && !value.places)
             return res.status(422).json({ message: "Está faltando detalhes para efetuar a reserva." });
 
         const reservationDb = new db.Reservation({
             adults: value.adults,
             kids: value.kids,
             date: value.date,
+            places: parseInt(value.places),
             token: jwt_decode(req.headers["x-token"]).id
         });
 
